@@ -1,0 +1,73 @@
+1) everything inside the / (forward /) is regex
+/cat/
+
+2) it is case sensitive ---- globale rule 
+
+ex match like /The/ it will match the and The
+
+
+### Idea of the Special Character#####
+
+1) + more then one same Character
+
+ex /e+/
+
+it will match more than e inside the paragraph
+
+2) * match 0 or more Character
+
+ex /re*/
+
+3) .(period char)----> it will match anything
+
+/.re/ it will match re anywhere in inside the paragraph.
+it will not match in new line
+
+4) match . -->/\./
+it will match any period (.) 
+remind it is not a wilcard
+
+5) any char before period /.\./ or /\w / any word Character
+
+6)/\w{4,5}/ -->world length
+
+7) grouping the cahar --->/[char]char/ or specify the rengis /[a-z]char/
+
+8)grouping the char /(t|T)char/ or it will match t or T and follow by the other Character
+
+9) look behind /(?<=>)/ but it will not capture original word or match it willl looke behind the original world
+
+10)look ahed /.(?=char)/ it will look  forward the world
+
+expamle 
+
+1) phone number regex
+
+123456789
+sol--->/\d{10}/
+
+2)123-456-7890
+sol -->
+/\d{3}-?\d{3}-?\d{4}/
+
+3)123 456 7890
+
+sol--->
+/\d{3}[*-]\d{3}[*-]\d{4}/
+
+4) capture the digit and merge it
+
+
+/(\d{3})[*-](\d{3}[*-])\(d{4})/
+
+
+5)grouping result --> $1$2$3-----> ans 1234567890
+
+6)(123)-456-7890
+/((?(?\d{3}\)?)[*-]\d{3}[*-]\d{4}/
+
+7) +91
+/(?:(\+91)[*-])((?(?\d{3}\)?)[*-]\d{3}[*-]\d{4}/
+
+
+
